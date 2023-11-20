@@ -1,0 +1,15 @@
+%% 
+clear;close all;clc;
+
+%%
+datpath = '../cases/';
+%datpath = '../cases/';
+caselist;
+csgroup = {rat8};
+ig=1;
+actgrp=csgroup{ig};
+ic=1;
+csname = strcat(datpath,actgrp{ic});
+
+readstat;
+../temp/readgrid;
