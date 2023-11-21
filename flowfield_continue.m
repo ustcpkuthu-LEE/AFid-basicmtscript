@@ -7,7 +7,7 @@ caselist;
 csgroup = {rat8};
 ig=1;
 actgrp=csgroup{ig};
-ic=1;
+ic=7;
 csname = strcat(datpath,actgrp{ic});
 
 readstat;
@@ -34,7 +34,7 @@ readgrid;
 [XX,YY]=meshgrid(zmr,ymr);
 [XC,YC]=meshgrid(zmc,ymc);
 sac = interp2(XX,YY,sar,XC,YC);
-de=sac.*Lam-te;
+de=sac-te.*Lam;
 %% draw
 asp = [lratio 1 1];
 ph=300;
@@ -59,7 +59,7 @@ rmap=1000;
 cmap=brewermap(rmap,'*RdBu');
 colormap(cmap)
 pcolor(ymc,zmc,te');
-caxis(ax2,[0 1]);
+clim(ax2,[0 1]);
 shading interp;
 pbaspect(asp);
 set(ax2,'XTick',[],'YTick',[],'lineWidth',2,'Fontsize',17);
