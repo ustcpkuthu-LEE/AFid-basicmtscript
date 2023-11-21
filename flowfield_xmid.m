@@ -8,7 +8,7 @@ caselist;
 csgroup = {rat8};
 ig=1;
 actgrp=csgroup{ig};
-ic=3;
+ic=1;
 csname = strcat(datpath,actgrp{ic});
 
 readstat;
@@ -22,7 +22,7 @@ lratio=dim(2);
 fxmid=strcat(csname,'/slab_xmid.h5');
 finfo=h5info(fxmid);
 nd=length(finfo.Groups(1).Datasets);
-id=10;
+id=400;
 dname=strcat('/q3/',finfo.Groups(1).Datasets(id).Name);
 q3=h5read(fxmid,dname);
 dname=strcat('/te/',finfo.Groups(1).Datasets(id).Name);
@@ -32,7 +32,7 @@ sar=h5read(fxmid,dname);
 [XX,YY]=meshgrid(zmr,ymr);
 [XC,YC]=meshgrid(zmc,ymc);
 sac = interp2(XX,YY,sar,XC,YC);
-de=sac.*Lam-te;
+de=sac-te.*Lam;
 %%
 asp = [lratio 1 1];
 ph=300;
@@ -57,7 +57,7 @@ rmap=1000;
 cmap=brewermap(rmap,'*RdBu');
 colormap(cmap)
 pcolor(ymc,zmc,te');
-caxis(ax2,[0 1]);
+clim(ax2,[0 1]);
 shading interp;
 pbaspect(asp);
 set(ax2,'XTick',[],'YTick',[],'lineWidth',2,'Fontsize',17);

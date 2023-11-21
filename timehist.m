@@ -5,9 +5,9 @@ datpath = '../cases/';
 outpath = '../results/';
 caselist;
 csgroup = {rat8};
-ig=1%1:length(csgroup);
+ig=1;%1:length(csgroup);
 actgrp=csgroup{ig};
-ic=1%1:length(actgrp);
+ic=7;%1:length(actgrp);
 csname = strcat(datpath,actgrp{ic});
 
 readstat;

@@ -7,7 +7,7 @@ caselist;
 csgroup = {rat8};
 ig=1;
 actgrp=csgroup{ig};
-ic=1;
+ic=9;
 csname = strcat(datpath,actgrp{ic});
 
 readstat;
@@ -32,7 +32,7 @@ readgrid;
 [XX,YY]=meshgrid(zmr,ymr);
 [XC,YC]=meshgrid(zmc,ymc);
 sac = interp2(XX,YY,sar,XC,YC);
-de=sac.*Lam-te;
+de=sac-te.*Lam;
 dm=mean(de);
 %% draw
 fig=figure('Position',[300 300 1000 500]);

@@ -7,7 +7,7 @@ caselist;
 csgroup = {rat8};
 ig=1;
 actgrp=csgroup{ig};
-ic=1;
+ic=10;
 csname = strcat(datpath,actgrp{ic});
 
 readstat;
